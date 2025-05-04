@@ -314,9 +314,9 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // const token = jwt.sign({ id: user._id, phone: user.phone }, "secretkey", {
-    //   expiresIn: "1d",
-    // });
+     const token = jwt.sign({ id: user._id, phone: user.phone }, "secretkey", {
+       expiresIn: "1d",
+     });
 
     // const newLogin = new Login({
     //   username,
@@ -328,8 +328,8 @@ const login = async (req, res) => {
 
     res.json({
       message: "Login successful",
-      // token,
-      // user: { username: user.username, phone: user.phone },
+       token,
+       user: { username: user.username, phone: user.phone },
     });
   } catch (error) {
     console.error("Error during login:", error);
